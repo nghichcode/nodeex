@@ -2,6 +2,7 @@
   "name": "nodeex",
   "description": "a really cool app",
   "version": "1.0.0",
+  "main": "index.js",
   "engines": {
     "node": "0.12.4",
     "npm": "2.10.1"
