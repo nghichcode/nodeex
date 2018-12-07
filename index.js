@@ -5,6 +5,7 @@ var querystring = require('querystring');
 var login = require('./login');
 var logout = require('./logout');
 var picking = require('./picking');
+var err = false;
 
 http.createServer(function (req, res) {
 
@@ -14,7 +15,7 @@ http.createServer(function (req, res) {
     	var body = '';
         req.on('data', function(chunk) {body += chunk.toString();});
         req.on('end', function() {response(querystring.parse(body));});
-    }
+    } else {err = true;}
 
     function response(params) {
     	var resContent = {};
@@ -38,6 +39,10 @@ http.createServer(function (req, res) {
 		res.end();
     }
 
+    if (err) {
+		res.writeHead(200,{'Content-Type':'text/json'});
+		res.end("Err");
+    };
 
-}).listen(process.env.PORT || 8080);
+}).listen(8080);
 // console.log(body);
