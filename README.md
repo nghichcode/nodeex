@@ -1,2 +1,2 @@
 # nodeex
-nodeex Prj
+NodeJS server with vanilla js.
